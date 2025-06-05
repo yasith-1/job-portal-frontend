@@ -135,8 +135,9 @@ body {
 }
 
 .page-section {
+  margin-bottom: 300px;
   display: none;
-  animation: fadeIn 0.5s ease-in;
+  /* animation: fadeIn 0.5s ease-in; */
 }
 
 .page-section.active {
