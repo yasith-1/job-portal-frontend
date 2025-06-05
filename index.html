@@ -118,14 +118,14 @@
                         </div>
                         <div class="card-body">
                             <form id="companyForm">
-                                <div class="row g-3">
-                                    <div class="col-md-6">
+                                <div class="row g-3 justify-content-center">
+                                    <div class="col-12">
                                         <label class="form-label">Company Name *</label>
-                                        <input type="text" class="form-control" required>
+                                        <input type="text" class="form-control" id="txt-company-name" required>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-12">
                                         <label class="form-label">Industry *</label>
-                                        <select class="form-select" required>
+                                        <select class="form-select" id="txt-industry" required>
                                             <option value="">Select Industry</option>
                                             <option value="technology">Technology</option>
                                             <option value="finance">Finance</option>
@@ -133,18 +133,18 @@
                                             <option value="education">Education</option>
                                             <option value="retail">Retail</option>
                                         </select>
-                                    </div>
+                                    <!-- </div>
                                     <div class="col-12">
                                         <label class="form-label">Company Description *</label>
                                         <textarea class="form-control" rows="4" required></textarea>
-                                    </div>
+                                    </div> -->
                                     <div class="col-12">
                                         <label class="form-label">Location</label>
-                                        <textarea class="form-control" rows="2"></textarea>
+                                        <textarea class="form-control" rows="2" id="txt-location"></textarea>
                                     </div>
                                 </div>
                                 <div class="mt-4">
-                                    <button type="submit" class="btn btn-success ">
+                                    <button class="btn btn-success " id="registerCompanyBtn">
                                         <i class="fas fa-check me-2"></i>Register Company
                                     </button>
                                     <button type="button" class="btn btn-outline-danger ms-2"
@@ -188,7 +188,7 @@
 
                                     <div class="col-md-6">
                                         <label class="form-label">Salary Date</label>
-                                        <input type="text" class="form-control" required>
+                                        <input type="date" class="form-control" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Salary</label>
@@ -243,68 +243,10 @@
                                 <div class="col-md-7">
                                     <h5 class="card-title mb-1">Senior Frontend Developer</h5>
                                     <p class="text-muted mb-2">TechCorp Solutions • San Francisco, CA</p>
-                                    <div class="d-flex gap-2 flex-wrap">
-                                        <span class="job-type-badge">Full Time</span>
-                                        <span class="badge bg-light text-dark">React</span>
-                                        <span class="badge bg-light text-dark">JavaScript</span>
-                                        <span class="badge bg-light text-dark">TypeScript</span>
-                                    </div>
                                 </div>
                                 <div class="col-md-3 text-end">
                                     <div class="salary-badge mb-2">$80K - $120K</div>
                                     <small class="text-muted">Posted 2 days ago</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="job-card card mb-3" onclick="showJobDetail(2)">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col-md-2">
-                                    <div class="company-logo">
-                                        <i class="fas fa-chart-line"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-7">
-                                    <h5 class="card-title mb-1">Data Scientist</h5>
-                                    <p class="text-muted mb-2">Innovate Labs • New York, NY</p>
-                                    <div class="d-flex gap-2 flex-wrap">
-                                        <span class="job-type-badge">Full Time</span>
-                                        <span class="badge bg-light text-dark">Python</span>
-                                        <span class="badge bg-light text-dark">Machine Learning</span>
-                                        <span class="badge bg-light text-dark">SQL</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 text-end">
-                                    <div class="salary-badge mb-2">$90K - $130K</div>
-                                    <small class="text-muted">Posted 1 week ago</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="job-card card mb-3" onclick="showJobDetail(3)">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col-md-2">
-                                    <div class="company-logo">
-                                        <i class="fas fa-mobile-alt"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-7">
-                                    <h5 class="card-title mb-1">Mobile App Developer</h5>
-                                    <p class="text-muted mb-2">Digital Dynamics • Austin, TX</p>
-                                    <div class="d-flex gap-2 flex-wrap">
-                                        <span class="job-type-badge">Contract</span>
-                                        <span class="badge bg-light text-dark">React Native</span>
-                                        <span class="badge bg-light text-dark">Swift</span>
-                                        <span class="badge bg-light text-dark">Kotlin</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 text-end">
-                                    <div class="salary-badge mb-2">$70K - $100K</div>
-                                    <small class="text-muted">Posted 3 days ago</small>
                                 </div>
                             </div>
                         </div>

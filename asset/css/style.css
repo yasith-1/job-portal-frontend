@@ -211,8 +211,8 @@ body {
 }
 
 .footer {
+  margin-top: 150px;
   background: var(--text-dark);
   color: white;
   padding: 3rem 0 1rem;
-  margin-top: 5rem;
 }

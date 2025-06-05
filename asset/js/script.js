@@ -171,3 +171,43 @@ document.addEventListener('DOMContentLoaded', function () {
         card.style.cursor = 'pointer';
     });
 });
+
+
+//Register company form submission
+document.getElementById("registerCompanyBtn").addEventListener('click', function (e) {
+    if (!this.checkValidity()) {
+        e.preventDefault(); // Prevent form submission if invalid
+        alert("Please fill in all required fields.");
+        return;
+    }
+
+    let location = document.getElementById("txt-location").value;
+    let name = document.getElementById("txt-company-name").value;
+    let industry = document.getElementById("txt-industry").value;
+
+    postData(location, name, industry);
+
+});
+
+// Call to fetch API
+
+function postData(location, name, industry) {
+    let postDataSet = {
+        "companyId": null,
+        "location": location,
+        "name": name,
+        "industry": industry
+    }
+
+    fetch("http://localhost:8080/company/add", {
+        method: "POST",
+        body: JSON.stringify(postDataSet),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(res=>{
+        return res
+    }).then(res=>{
+        alert(res.status);
+    })
+}
