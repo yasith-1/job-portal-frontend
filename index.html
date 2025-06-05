@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./asset/css/style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container d-flex flex-row justify-content-between align-content-center">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-briefcase me-2"></i>Job-Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-2">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#" onclick="showPage('jobs')">Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#" onclick="showPage('company-register')">Register
+                            Company</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#" onclick="showPage('post-job')">Post Job</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page-section active mt-5">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h1>Find Your Dream Job</h1>
+                        <p class="lead">Connect with top companies and discover opportunities that match your skills and
+                            ambitions.</p>
+                        <div class="row mt-4 g-3">
+                            <div class="col-12 col-md-6">
+                                <button class="col-6 me-3 w-100 p-3 fw-bold rounded-pill border-0"
+                                    onclick="showPage('jobs')">
+                                    <i class="fas fa-search me-2"></i>Browse Jobs
+                                </button>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <button class="btn btn-success w-100 p-3 fw-bold rounded-pill border-0"
+                                    onclick="showPage('company-register')">
+                                    <i class="fas fa-building me-2"></i>Register Company
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="text-center">
+                            <i class="fas fa-laptop-code" style="font-size: 15rem; opacity: 0.3;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="container mb-5">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <div class="stats-number">500+</div>
+                        <div>Active Jobs</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <div class="stats-number">200+</div>
+                        <div>Companies</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <div class="stats-number">1000+</div>
+                        <div>Job Seekers</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <div class="stats-number">95%</div>
+                        <div>Success Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Company Registration Page -->
+    <div id="company-register" class="page-section" style="margin-top: 100px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="mb-0"><i class="fas fa-building me-2"></i>Company Registration</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="companyForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Company Name *</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Industry *</label>
+                                        <select class="form-select" required>
+                                            <option value="">Select Industry</option>
+                                            <option value="technology">Technology</option>
+                                            <option value="finance">Finance</option>
+                                            <option value="healthcare">Healthcare</option>
+                                            <option value="education">Education</option>
+                                            <option value="retail">Retail</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Company Description *</label>
+                                        <textarea class="form-control" rows="4" required></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Location</label>
+                                        <textarea class="form-control" rows="2"></textarea>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <button type="submit" class="btn btn-success ">
+                                        <i class="fas fa-check me-2"></i>Register Company
+                                    </button>
+                                    <button type="button" class="btn btn-outline-danger ms-2"
+                                        onclick="showPage('home')">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Job Posting Page -->
+    <div id="post-job" class="page-section" style="margin-top: 100px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="mb-0"><i class="fas fa-plus-circle me-2"></i>Post New Job</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="jobForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Job Title *</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Company *</label>
+                                        <select class="form-select" required>
+                                            <option value="">Select Company</option>
+                                            <option value="techcorp">TechCorp Solutions</option>
+                                            <option value="innovate">Innovate Labs</option>
+                                            <option value="digital">Digital Dynamics</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">Salary Date</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Salary</label>
+                                        <input type="text" class="form-control" placeholder="e.g., $50,000 - $70,000">
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Job Description *</label>
+                                        <textarea class="form-control" rows="5" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-paper-plane me-2"></i>Post Job
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary btn-lg ms-2"
+                                        onclick="showPage('home')">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Job Listings Page -->
+    <div id="jobs" class="page-section" style="margin-top: 100px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2>Job Listings</h2>
+                        <div class="input-group" style="max-width: 300px;">
+                            <input type="text" class="form-control" placeholder="Search jobs...">
+                            <button class="btn btn-outline-primary" type="button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Job Cards -->
+                    <div class="job-card card mb-3" onclick="showJobDetail(1)">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-2">
+                                    <div class="company-logo">
+                                        <i class="fas fa-laptop-code"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <h5 class="card-title mb-1">Senior Frontend Developer</h5>
+                                    <p class="text-muted mb-2">TechCorp Solutions • San Francisco, CA</p>
+                                    <div class="d-flex gap-2 flex-wrap">
+                                        <span class="job-type-badge">Full Time</span>
+                                        <span class="badge bg-light text-dark">React</span>
+                                        <span class="badge bg-light text-dark">JavaScript</span>
+                                        <span class="badge bg-light text-dark">TypeScript</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 text-end">
+                                    <div class="salary-badge mb-2">$80K - $120K</div>
+                                    <small class="text-muted">Posted 2 days ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-card card mb-3" onclick="showJobDetail(2)">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-2">
+                                    <div class="company-logo">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <h5 class="card-title mb-1">Data Scientist</h5>
+                                    <p class="text-muted mb-2">Innovate Labs • New York, NY</p>
+                                    <div class="d-flex gap-2 flex-wrap">
+                                        <span class="job-type-badge">Full Time</span>
+                                        <span class="badge bg-light text-dark">Python</span>
+                                        <span class="badge bg-light text-dark">Machine Learning</span>
+                                        <span class="badge bg-light text-dark">SQL</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 text-end">
+                                    <div class="salary-badge mb-2">$90K - $130K</div>
+                                    <small class="text-muted">Posted 1 week ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-card card mb-3" onclick="showJobDetail(3)">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-2">
+                                    <div class="company-logo">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <h5 class="card-title mb-1">Mobile App Developer</h5>
+                                    <p class="text-muted mb-2">Digital Dynamics • Austin, TX</p>
+                                    <div class="d-flex gap-2 flex-wrap">
+                                        <span class="job-type-badge">Contract</span>
+                                        <span class="badge bg-light text-dark">React Native</span>
+                                        <span class="badge bg-light text-dark">Swift</span>
+                                        <span class="badge bg-light text-dark">Kotlin</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 text-end">
+                                    <div class="salary-badge mb-2">$70K - $100K</div>
+                                    <small class="text-muted">Posted 3 days ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav aria-label="Job listings pagination">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Job Detail Page -->
+    <div id="job-detail" class="page-section mt-5">
+        <div class="job-detail-header">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-2">
+                        <div class="company-logo bg-white" style="width: 80px; height: 80px; font-size: 2rem;">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <h1 class="mb-2">Senior Frontend Developer</h1>
+                        <p class="lead mb-2">TechCorp Solutions • San Francisco, CA</p>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <span class="badge bg-light text-dark px-3 py-2">Full Time</span>
+                            <span class="badge bg-light text-dark px-3 py-2">Senior Level</span>
+                            <span class="badge bg-light text-dark px-3 py-2">Remote Friendly</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-end">
+                        <div class="salary-badge mb-3" style="font-size: 1.2rem;">$80K - $120K</div>
+                        <button class="btn btn-light ">
+                            <i class="fas fa-paper-plane me-2"></i>Apply Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h4 class="card-title">Job Description</h4>
+                            <p>We are looking for a talented Senior Frontend Developer to join our dynamic team. You
+                                will be responsible for building the next generation of web applications using modern
+                                technologies and frameworks.</p>
+
+                            <p>As a Senior Frontend Developer, you will work closely with our design and backend teams
+                                to create exceptional user experiences. You'll have the opportunity to mentor junior
+                                developers and contribute to architectural decisions.</p>
+
+                            <h5 class="mt-4">Key Responsibilities:</h5>
+                            <ul class="list-unstyled">
+                                <li class="requirement-item"><i class="fas fa-check text-success me-2"></i>Develop and
+                                    maintain responsive web applications</li>
+                                <li class="requirement-item"><i class="fas fa-check text-success me-2"></i>Collaborate
+                                    with designers to implement pixel-perfect UI</li>
+                                <li class="requirement-item"><i class="fas fa-check text-success me-2"></i>Optimize
+                                    applications for maximum speed and scalability</li>
+                                <li class="requirement-item"><i class="fas fa-check text-success me-2"></i>Write clean,
+                                    maintainable, and well-documented code</li>
+                                <li class="requirement-item"><i class="fas fa-check text-success me-2"></i>Mentor junior
+                                    developers and conduct code reviews</li>
+                            </ul>
+
+                            <h5 class="mt-4">Requirements:</h5>
+                            <ul class="list-unstyled">
+                                <li class="requirement-item"><i class="fas fa-star text-warning me-2"></i>5+ years of
+                                    experience in frontend development</li>
+                                <li class="requirement-item"><i class="fas fa-star text-warning me-2"></i>Expert
+                                    knowledge of React, JavaScript, and TypeScript</li>
+                                <li class="requirement-item"><i class="fas fa-star text-warning me-2"></i>Experience
+                                    with modern CSS frameworks and preprocessors</li>
+                                <li class="requirement-item"><i class="fas fa-star text-warning me-2"></i>Strong
+                                    understanding of responsive design principles</li>
+                                <li class="requirement-item"><i class="fas fa-star text-warning me-2"></i>Experience
+                                    with version control systems (Git)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="mb-0">Job Details</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-6"><strong>Location:</strong></div>
+                                <div class="col-6">San Francisco, CA</div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-6"><strong>Salary:</strong></div>
+                                <div class="col-6">$80K - $120K</div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-6"><strong>Posted:</strong></div>
+                                <div class="col-6">2 days ago</div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-6"><strong>Applications:</strong></div>
+                                <div class="col-6">23 applied</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="mb-0">About Company</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6>TechCorp Solutions</h6>
+                            <p class="text-muted small">TechCorp Solutions is a leading technology company focused on
+                                creating innovative solutions for businesses worldwide. We pride ourselves on our
+                                collaborative culture and commitment to excellence.</p>
+                            <div class="row text-center">
+                                <div class="col-4">
+                                    <div class="text-primary fw-bold">500+</div>
+                                    <small>Employees</small>
+                                </div>
+                                <div class="col-4">
+                                    <div class="text-primary fw-bold">2015</div>
+                                    <small>Founded</small>
+                                </div>
+                                <div class="col-4">
+                                    <div class="text-primary fw-bold">Tech</div>
+                                    <small>Industry</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apply-section">
+                        <h5 class="mb-3">Ready to Apply?</h5>
+                        <p class="text-muted mb-3">Join our team and help build the future of technology.</p>
+                        <button class="btn btn-primary btn-lg w-100 mb-2">
+                            <i class="fas fa-paper-plane me-2"></i>Apply for this Job
+                        </button>
+                        <button class="btn btn-outline-primary w-100">
+                            <i class="fas fa-heart me-2"></i>Save Job
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button class="btn btn-outline-secondary" onclick="showPage('jobs')">
+                    <i class="fas fa-arrow-left me-2"></i>Back to Job Listings
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <h5><i class="fas fa-briefcase me-2"></i>Job-Portal</h5>
+                    <p class="text-light">Connecting talented professionals with amazing opportunities worldwide.</p>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: #d4d4d4;">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 Jobportal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="./asset/js/script.js"></script>
+</body>
+
+</html>
