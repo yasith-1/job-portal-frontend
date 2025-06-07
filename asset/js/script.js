@@ -233,10 +233,10 @@ function postCompanyData(location, name, industry) {
         });
 }
 
-function clearCompanyFiledData(){
-    let location = document.getElementById("txt-location").value="";
-    let name = document.getElementById("txt-company-name").value="";
-    let industry = document.getElementById("txt-industry").value="";
+function clearCompanyFiledData() {
+    let location = document.getElementById("txt-location").value = "";
+    let name = document.getElementById("txt-company-name").value = "";
+    let industry = document.getElementById("txt-industry").value = "";
 }
 
 // Call to fetch API GET all data
@@ -264,22 +264,10 @@ function getAllJobs() {
             });
         });
 }
-
+// load all job post when DOM content loaded
 document.addEventListener('DOMContentLoaded', getAllJobs);
 
-// "jobId": "J001",
-//         "title": "ICT",
-//         "description": "IT",
-//         "salary": 25000.0,
-//         "companyName": "allionz"
-
-//save job post
 document.getElementById("post-job-btn").addEventListener('click', function (e) {
-    if (!this.checkValidity()) {
-        e.preventDefault(); // Prevent form submission if invalid
-        alert("Please fill in all required fields.");
-        return;
-    }
 
     let jobId = "";
     let title = document.getElementById("job-post-title").value;
@@ -287,52 +275,56 @@ document.getElementById("post-job-btn").addEventListener('click', function (e) {
     let description = document.getElementById("job-post-description").value;
     let companyName = document.getElementById("job-post-companyName").value;
 
-    saveJobPost(jobId,title, salary, description,companyName);
-
+    
+    saveJobPost(jobId, title, salary, description, companyName);
 });
 
+function saveJobPost(jobId, title, salary, description, companyName) {
+    let postDataSet = {
+        "jobId": jobId,
+        "salaryDate": null,
+        "salary": salary,
+        "description": description,
+        "title": title,
+        "companyId": "C001"
+    };
 
-// Call to fetch API POST DATA
+    fetch("http://localhost:8080/job/add", {
+        method: "POST",
+        body: JSON.stringify(postDataSet),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+        .then(res => {
+            if (res.status === 200) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Job Posted',
+                    text: 'The job was added successfully!',
+                });
+                clearJobFieldData();
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Failed to Add Job',
+                    text: 'Something went wrong! Status: ' + res.status,
+                });
+            }
+        })
+        .catch(error => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Network Error',
+                text: 'Could not connect to the server.',
+            });
+            console.error("Error:", error);
+        });
+}
 
-// function saveJobPost(jobId, title,salary, description,companyName) {
-//     let postDataSet = {
-//         "jobId": jobId,
-//         "title": title,
-//         "description": description,
-//         "salary": salary,
-//         "companyName": companyName
-//     };
-
-//     fetch("http://localhost:8080/company/add", {
-//         method: "POST",
-//         body: JSON.stringify(postDataSet),
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//     })
-//         .then(res => {
-//             if (res.status === 200) {
-//                 Swal.fire({
-//                     icon: 'success',
-//                     title: 'Jobpost Added',
-//                     text: 'The Job was added successfully!',
-//                 });
-//                 clearCompanyFiledData();
-//             } else {
-//                 Swal.fire({
-//                     icon: 'error',
-//                     title: 'Failed to Add job',
-//                     text: 'Something went wrong! Status: ' + res.status,
-//                 });
-//                 clearCompanyFiledData();
-//             }
-//         })
-//         .catch(error => {
-//             Swal.fire({
-//                 icon: 'error',
-//                 title: 'Network Error',
-//                 text: 'Could not connect to the server.',
-//             });
-//             console.error("Error:", error);
-//         });
-// }
+function clearJobFieldData() {
+    document.getElementById("job-post-title").value = "";
+    document.getElementById("job-post-salary").value = "";
+    document.getElementById("job-post-description").value = "";
+    document.getElementById("job-post-companyName").value = "";
+}
