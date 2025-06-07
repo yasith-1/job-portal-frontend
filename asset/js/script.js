@@ -185,19 +185,19 @@ document.getElementById("registerCompanyBtn").addEventListener('click', function
     let name = document.getElementById("txt-company-name").value;
     let industry = document.getElementById("txt-industry").value;
 
-    postData(location, name, industry);
+    postCompanyData(location, name, industry);
 
 });
 
-// Call to fetch API
+// Call to fetch API POST DATA
 
-function postData(location, name, industry) {
+function postCompanyData(location, name, industry) {
     let postDataSet = {
         "companyId": null,
         "location": location,
         "name": name,
         "industry": industry
-    }
+    };
 
     fetch("http://localhost:8080/company/add", {
         method: "POST",
@@ -205,9 +205,134 @@ function postData(location, name, industry) {
         headers: {
             "Content-Type": "application/json",
         },
-    }).then(res=>{
-        return res
-    }).then(res=>{
-        alert(res.status);
     })
+        .then(res => {
+            if (res.status === 200) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Company Added',
+                    text: 'The company was added successfully!',
+                });
+                clearCompanyFiledData();
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Failed to Add Company',
+                    text: 'Something went wrong! Status: ' + res.status,
+                });
+                clearCompanyFiledData();
+            }
+        })
+        .catch(error => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Network Error',
+                text: 'Could not connect to the server.',
+            });
+            console.error("Error:", error);
+        });
 }
+
+function clearCompanyFiledData(){
+    let location = document.getElementById("txt-location").value="";
+    let name = document.getElementById("txt-company-name").value="";
+    let industry = document.getElementById("txt-industry").value="";
+}
+
+// Call to fetch API GET all data
+let jobContainer = document.getElementById("job-card-container");
+function getAllJobs() {
+    fetch("http://localhost:8080/job/getalljobscompanies")
+        .then(res => res.json())
+        .then(result => {
+            jobContainer.innerHTML = ""; // Clear old content
+            result.forEach(job => {
+                jobContainer.innerHTML += `
+                    <div class="col-12 col-md-6">
+                        <div class="card bg-body-tertiary border border-primary border-2">
+                            <div class="card-header">
+                                <span class="badge text-bg-secondary p-2" style="font-size:15px;">Company Name : ${job.companyName}</span>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Job Title : ${job.title}</h5>
+                                <span class="card-title">Job Description : ${job.description}</span>
+                                </br></br>
+                                <span class="text-success fw-bold">Salary : ${job.salary}</span>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+        });
+}
+
+document.addEventListener('DOMContentLoaded', getAllJobs);
+
+// "jobId": "J001",
+//         "title": "ICT",
+//         "description": "IT",
+//         "salary": 25000.0,
+//         "companyName": "allionz"
+
+//save job post
+document.getElementById("post-job-btn").addEventListener('click', function (e) {
+    if (!this.checkValidity()) {
+        e.preventDefault(); // Prevent form submission if invalid
+        alert("Please fill in all required fields.");
+        return;
+    }
+
+    let jobId = "";
+    let title = document.getElementById("job-post-title").value;
+    let salary = document.getElementById("job-post-salary").value;
+    let description = document.getElementById("job-post-description").value;
+    let companyName = document.getElementById("job-post-companyName").value;
+
+    saveJobPost(jobId,title, salary, description,companyName);
+
+});
+
+
+// Call to fetch API POST DATA
+
+// function saveJobPost(jobId, title,salary, description,companyName) {
+//     let postDataSet = {
+//         "jobId": jobId,
+//         "title": title,
+//         "description": description,
+//         "salary": salary,
+//         "companyName": companyName
+//     };
+
+//     fetch("http://localhost:8080/company/add", {
+//         method: "POST",
+//         body: JSON.stringify(postDataSet),
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//     })
+//         .then(res => {
+//             if (res.status === 200) {
+//                 Swal.fire({
+//                     icon: 'success',
+//                     title: 'Jobpost Added',
+//                     text: 'The Job was added successfully!',
+//                 });
+//                 clearCompanyFiledData();
+//             } else {
+//                 Swal.fire({
+//                     icon: 'error',
+//                     title: 'Failed to Add job',
+//                     text: 'Something went wrong! Status: ' + res.status,
+//                 });
+//                 clearCompanyFiledData();
+//             }
+//         })
+//         .catch(error => {
+//             Swal.fire({
+//                 icon: 'error',
+//                 title: 'Network Error',
+//                 text: 'Could not connect to the server.',
+//             });
+//             console.error("Error:", error);
+//         });
+// }

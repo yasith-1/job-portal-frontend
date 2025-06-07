@@ -105,6 +105,13 @@
                 </div>
             </div>
         </div>
+
+        <!-- job cards -->
+        <div class="container">
+            <div class="row justify-content-center g-4" id="job-card-container">
+                <!-- content load here -->
+            </div>
+        </div>
     </div>
 
     <!-- Company Registration Page -->
@@ -173,11 +180,11 @@
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label class="form-label">Job Title *</label>
-                                    <input type="text" class="form-control" required>
+                                    <input type="text" class="form-control" id="job-post-title" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Company *</label>
-                                    <select class="form-select" required>
+                                    <select class="form-select" id="job-post-companyName" required>
                                         <option value="">Select Company</option>
                                         <option value="techcorp">TechCorp Solutions</option>
                                         <option value="innovate">Innovate Labs</option>
@@ -185,22 +192,22 @@
                                     </select>
                                 </div>
 
-                                <div class="col-md-6">
+                                <!-- <div class="col-md-6">
                                     <label class="form-label">Salary Date</label>
                                     <input type="date" class="form-control" required>
-                                </div>
+                                </div> -->
                                 <div class="col-md-6">
                                     <label class="form-label">Salary</label>
-                                    <input type="text" class="form-control" placeholder="e.g., $50,000 - $70,000">
+                                    <input type="text" class="form-control" id="job-post-salary" placeholder="e.g., $50,000 - $70,000">
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label">Job Description *</label>
-                                    <textarea class="form-control" rows="5" required></textarea>
+                                    <textarea class="form-control" rows="5" id="job-post-description" required></textarea>
                                 </div>
                             </div>
                             <div class="mt-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fas fa-paper-plane me-2"></i>Post Job
+                                    <i class="fas fa-paper-plane me-2" id="post-job-btn"></i>Post Job
                                 </button>
                                 <button type="button" class="btn btn-outline-secondary  ms-2"
                                     onclick="showPage('home')">
@@ -438,6 +445,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="./asset/js/script.js"></script>
 </body>
